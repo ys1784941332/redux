@@ -9,20 +9,19 @@ import {
 class Son extends React.Component {
   // 删除
   deleteItem = (index) => {
-    // this.props.customDeleteItem(index)
-    console.log(1111, index);
+    this.props.customDeleteItem(index)
   }
   render() {
     return (
       <div>
         <h3>子组件展示</h3>
         <div>
-          {/* <div>{this.props.displayList}</div> */}
           {this.props?.displayList?.map((item, index) => {
             return (
-              <button onClick={this.deleteItem(index)} key={index}>
+              <button onClick={()=>{
+                this.deleteItem(index)
+              }} key={index}>
                 <div>{item}</div>
-                {/* <button >移除</button> */}
               </button>
             );
           })}

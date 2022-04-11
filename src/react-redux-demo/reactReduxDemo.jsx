@@ -37,8 +37,7 @@ class ReactReduxDemo extends React.Component {
   deleteItem = (index) => {
     // const deleteAction = deleteItemAction(index);
     // store.dispatch(deleteAction);
-    console.log("删除了", index, this.props);
-    // this.props.customDeleteItem(index)
+    this.props.customDeleteItem(index)
   };
 
   render() {
@@ -54,7 +53,9 @@ class ReactReduxDemo extends React.Component {
         <ul>
           {this.props?.displayList?.map((item, index) => {
             return (
-              <button onClick={this.deleteItem(index)} key={index}>
+              <button onClick={()=>{
+                this.deleteItem(index)
+              }} key={index}>
                 <div>{item}</div>
               </button>
             );
@@ -92,7 +93,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReactReduxDemo);
-
-// todo
-// 1、connect传对象和 直接参数区别
-// 2、点击增加 却 调了删除方法

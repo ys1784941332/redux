@@ -15,7 +15,7 @@ export default class ReduxDemo extends React.Component {
       name: '测试',
     }
 
-    // 监听变化，更新视图 (这里也可以监听)
+    // 监听变化，更新视图
     // store.subscribe(this.updateList)
   }
 
@@ -57,9 +57,8 @@ export default class ReduxDemo extends React.Component {
 
   // 删除
   deleteItem = (index) => {
-    console.log(1111111);
     const deleteAction = deleteItemAction(index);
-    // store.dispatch(deleteAction);
+    store.dispatch(deleteAction);
   };
 
   render() {
@@ -77,7 +76,9 @@ export default class ReduxDemo extends React.Component {
           {/* {store.getState()?.list?.map((item, index) => { */}
           {this?.state?.list?.map((item, index) => {
             return (
-              <button onClick={this.deleteItem(index)} key={index}>
+              <button onClick={()=>{
+                this.deleteItem(index)
+              }} key={index}>
                 {item}
               </button>
             );

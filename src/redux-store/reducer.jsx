@@ -1,4 +1,5 @@
 import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./actionTypes";
+import { combineReducers } from 'redux';
 
 // 纯函数， 根据不同的 action 返回新的 state
 export const reducer = (state = { inputVal: 0, list: [] }, action) => {
